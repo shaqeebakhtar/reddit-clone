@@ -28,6 +28,7 @@ export const Button: ComponentStyleConfig = {
       borderColor: "blue.500",
     },
     oauth: {
+      color: "black",
       height: "34px",
       border: "1px solid",
       borderColor: "gray.300",

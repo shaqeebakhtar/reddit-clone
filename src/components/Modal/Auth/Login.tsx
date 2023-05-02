@@ -1,10 +1,10 @@
 import { authModalState } from "@/src/atoms/authModalAtom";
-import { Button, Flex, Input, Text } from "@chakra-ui/react";
-import React, { useState } from "react";
-import { useSetRecoilState } from "recoil";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "@/src/firebase/clientApp";
 import { FIREBASE_ERRORS } from "@/src/firebase/errors";
+import { Button, Flex, Input, Text } from "@chakra-ui/react";
+import React, { useState } from "react";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useSetRecoilState } from "recoil";
 
 const Login = () => {
   const setAuthModalState = useSetRecoilState(authModalState);
@@ -79,6 +79,23 @@ const Login = () => {
       >
         Log In
       </Button>
+      <Flex fontSize="9pt" justifyContent="center" mb={6}>
+        <Text mr={1}>Forgot Password?</Text>
+        <Text
+          color="blue.500"
+          fontWeight="700"
+          textDecoration="underline"
+          cursor="pointer"
+          onClick={() =>
+            setAuthModalState((prev) => ({
+              ...prev,
+              view: "resetPassword",
+            }))
+          }
+        >
+          Reset
+        </Text>
+      </Flex>
       <Flex fontSize="9pt" justifyContent="center">
         <Text mr={1}>New to Reddit?</Text>
         <Text

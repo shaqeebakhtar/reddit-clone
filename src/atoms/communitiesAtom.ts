@@ -1,6 +1,5 @@
 import { Timestamp } from "firebase/firestore";
 import { atom } from "recoil";
-import { NumberLiteralType } from "typescript";
 
 export interface Community {
   id: string;
@@ -10,3 +9,23 @@ export interface Community {
   createdAt?: Timestamp;
   imageurl?: string;
 }
+
+interface CommunitySnippet {
+  communityId: string;
+  isModerator?: boolean;
+  imageUrl?: string;
+}
+
+interface CommunityState {
+  snippets: CommunitySnippet[];
+  // visitedCommunities
+}
+
+const defaultCommunityState: CommunityState = {
+  snippets: [],
+};
+
+export const communityState = atom<CommunityState>({
+  key: "communityState",
+  default: defaultCommunityState,
+});

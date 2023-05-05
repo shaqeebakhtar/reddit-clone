@@ -102,6 +102,7 @@ const CreateCommunityModal = ({ open, handleClose }: Props) => {
     }
 
     setLoading(false);
+    handleClose();
   };
 
   return (

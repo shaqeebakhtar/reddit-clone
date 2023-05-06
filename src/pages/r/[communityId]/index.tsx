@@ -1,5 +1,5 @@
-import { useEffect } from "react";
 import { Community, communityState } from "@/src/atoms/communitiesAtom";
+import About from "@/src/components/Community/About";
 import CreatePostLink from "@/src/components/Community/CreatePostLink";
 import Header from "@/src/components/Community/Header";
 import NotFound from "@/src/components/Community/NotFound";
@@ -8,9 +8,9 @@ import Posts from "@/src/components/Posts/Posts";
 import { firestore } from "@/src/firebase/clientApp";
 import { doc, getDoc } from "firebase/firestore";
 import { GetServerSidePropsContext } from "next";
-import safeJsonStringify from "safe-json-stringify";
+import { useEffect } from "react";
 import { useSetRecoilState } from "recoil";
-import About from "@/src/components/Community/About";
+import safeJsonStringify from "safe-json-stringify";
 
 type CommunityPageProps = {
   communityData: Community;

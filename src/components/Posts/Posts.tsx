@@ -2,11 +2,11 @@ import { Community } from "@/src/atoms/communitiesAtom";
 import { Post } from "@/src/atoms/postsAtom";
 import { auth, firestore } from "@/src/firebase/clientApp";
 import usePosts from "@/src/hooks/usePosts";
+import { Stack } from "@chakra-ui/react";
 import { collection, getDocs, orderBy, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import PostItem from "./PostItem";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Stack } from "@chakra-ui/react";
+import PostItem from "./PostItem";
 import PostsLoader from "./PostsLoader";
 
 type PostsProps = {

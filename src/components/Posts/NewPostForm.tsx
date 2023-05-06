@@ -1,23 +1,13 @@
+import { Post } from "@/src/atoms/postsAtom";
+import { firestore, storage } from "@/src/firebase/clientApp";
 import {
   Alert,
   AlertDescription,
   AlertIcon,
-  AlertTitle,
   Flex,
   Icon,
-  Text,
 } from "@chakra-ui/react";
-import { BsLink45Deg, BsMic } from "react-icons/bs";
-import { IoDocumentText, IoImageOutline } from "react-icons/io5";
-import { BiPoll } from "react-icons/bi";
-import TabItem from "./TabItem";
-import { useState } from "react";
-import TextInputs from "./PostForm/TextInputs";
-import ImageUpload from "./PostForm/ImageUpload";
-import { read } from "fs";
-import { Post, postState } from "@/src/atoms/postsAtom";
 import { User } from "firebase/auth";
-import { useRouter } from "next/router";
 import {
   Timestamp,
   addDoc,
@@ -25,8 +15,16 @@ import {
   serverTimestamp,
   updateDoc,
 } from "firebase/firestore";
-import { firestore, storage } from "@/src/firebase/clientApp";
 import { getDownloadURL, ref, uploadString } from "firebase/storage";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import { BiPoll } from "react-icons/bi";
+import { BsLink45Deg, BsMic } from "react-icons/bs";
+import { IoDocumentText, IoImageOutline } from "react-icons/io5";
+import ImageUpload from "./PostForm/ImageUpload";
+import TextInputs from "./PostForm/TextInputs";
+import TabItem from "./TabItem";
+import useSelectFile from "@/src/hooks/useSelectFile";
 
 type NewPostFormProps = {
   user: User;
@@ -68,8 +66,7 @@ const NewPostForm = ({ user }: NewPostFormProps) => {
     body: "",
   });
   const [loading, setLoading] = useState(false);
-
-  const [selectedFile, setSelectedFile] = useState<string>();
+  const { selectedFile, setSelectedFile, onSelectFile } = useSelectFile();
   const [error, setError] = useState(false);
 
   const handleCreatePost = async () => {
@@ -105,20 +102,6 @@ const NewPostForm = ({ user }: NewPostFormProps) => {
     }
 
     setLoading(false);
-  };
-
-  const onSelectImage = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const reader = new FileReader();
-
-    if (event.target.files?.[0]) {
-      reader.readAsDataURL(event.target.files[0]);
-    }
-
-    reader.onload = (readerEvent) => {
-      if (readerEvent.target?.result) {
-        setSelectedFile(readerEvent.target.result as string);
-      }
-    };
   };
 
   const onTextChange = (
@@ -157,7 +140,7 @@ const NewPostForm = ({ user }: NewPostFormProps) => {
         {selectedTab === "Images & Video" && (
           <ImageUpload
             selectedFile={selectedFile}
-            onSelectImage={onSelectImage}
+            onSelectImage={onSelectFile}
             setSelectedTab={setSelectedTab}
             setSelectedFile={setSelectedFile}
           />

@@ -1,21 +1,20 @@
 import { Post } from "@/src/atoms/postsAtom";
 import {
-  Flex,
-  Icon,
-  Stack,
-  Text,
-  Image,
-  Skeleton,
-  Spinner,
   Alert,
   AlertDescription,
   AlertIcon,
+  Flex,
+  Icon,
+  Image,
+  Skeleton,
+  Spinner,
+  Stack,
+  Text,
 } from "@chakra-ui/react";
 import moment from "moment";
 import { useState } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
-import { BsChat, BsDot } from "react-icons/bs";
-import { FaReddit } from "react-icons/fa";
+import { BsChat } from "react-icons/bs";
 import {
   IoArrowDownCircleOutline,
   IoArrowDownCircleSharp,

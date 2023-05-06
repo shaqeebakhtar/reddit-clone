@@ -25,12 +25,10 @@ type Props = {
 };
 
 const UserMenu = ({ user }: Props) => {
-  const resetCommunityState = useResetRecoilState(communityState);
   const setAuthModalState = useSetRecoilState(authModalState);
 
   const logout = async () => {
     await signOut(auth);
-    resetCommunityState();
   };
 
   return (

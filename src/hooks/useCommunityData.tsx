@@ -64,7 +64,7 @@ const useCommunityData = () => {
       const batch = writeBatch(firestore);
       const newSnippet: CommunitySnippet = {
         communityId: communityData.id,
-        imageUrl: communityData.imageurl || "",
+        imageUrl: communityData.imageUrl || "",
       };
 
       batch.set(
@@ -128,7 +128,13 @@ const useCommunityData = () => {
   };
 
   useEffect(() => {
-    if (!user) return;
+    if (!user) {
+      setCommunityStateValue((prev) => ({
+        ...prev,
+        snippets: [],
+      }));
+      return;
+    }
     getSnippets();
   }, [user]);
 

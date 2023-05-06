@@ -12,7 +12,7 @@ export type Post = {
   voteStatus: number;
   imageUrl?: string;
   communityImageUrl?: string;
-  creatorAt: Timestamp;
+  createdAt: Timestamp;
 };
 
 interface PostState {

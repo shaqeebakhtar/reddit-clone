@@ -82,7 +82,7 @@ const NewPostForm = ({ user }: NewPostFormProps) => {
       body: textInputs.body,
       numberOfComments: 0,
       voteStatus: 0,
-      creatorAt: serverTimestamp() as Timestamp,
+      createdAt: serverTimestamp() as Timestamp,
     };
 
     setLoading(true);

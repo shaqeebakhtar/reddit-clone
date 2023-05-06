@@ -6,13 +6,16 @@ const usePosts = () => {
 
   const onVote = async () => {};
 
-  const onSelectPost = async () => {};
+  const onSelectPost = () => {};
 
   const onDeletePost = async () => {};
 
   return {
     postStateValue,
     setPostStateValue,
+    onVote,
+    onSelectPost,
+    onDeletePost,
   };
 };
 

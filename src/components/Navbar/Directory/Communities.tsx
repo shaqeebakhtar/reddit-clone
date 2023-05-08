@@ -12,8 +12,6 @@ const Communities = () => {
   const [open, setOpen] = useState(false);
   const snippets = useRecoilValue(communityState).snippets;
 
-  console.log(snippets);
-
   return (
     <>
       <CreateCommunityModal open={open} handleClose={() => setOpen(false)} />

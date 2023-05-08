@@ -20,6 +20,9 @@ import CreatePostLink from "../components/Community/CreatePostLink";
 import { communityState } from "../atoms/communitiesAtom";
 import { useRecoilValue } from "recoil";
 import useCommunityData from "../hooks/useCommunityData";
+import Recommendation from "../components/Community/Recommendation";
+import Premium from "../components/Community/Premium";
+import PersonalHome from "../components/Community/PersonalHome";
 
 const Home: NextPage = () => {
   const [user, loadingUser] = useAuthState(auth);
@@ -163,7 +166,11 @@ const Home: NextPage = () => {
           </Stack>
         )}
       </>
-      <></>
+      <Stack spacing={5}>
+        <Recommendation />
+        <Premium />
+        <PersonalHome />
+      </Stack>
     </PageContent>
   );
 };

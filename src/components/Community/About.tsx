@@ -98,7 +98,7 @@ const About = ({ communityData }: AboutProps) => {
             <Icon as={RiCakeLine} fontSize={18} mr={2} />
             {communityData.createdAt && (
               <Text>
-                Created
+                Created{" "}
                 {moment(
                   new Date(communityData.createdAt.seconds * 1000)
                 ).format("MMM DD, YYYY")}

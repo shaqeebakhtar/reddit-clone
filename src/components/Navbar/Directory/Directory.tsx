@@ -6,10 +6,8 @@ import { TiHome } from "react-icons/ti";
 import Communities from "./Communities";
 
 const Directory = () => {
-  const setAuthModalState = useSetRecoilState(authModalState);
-
   return (
-    <Menu>
+    <Menu isOpen={false}>
       <MenuButton
         cursor="pointer"
         padding="0px 6px"

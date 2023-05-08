@@ -1,17 +1,17 @@
-import { useEffect } from "react";
 import PageContent from "@/src/components/Layout/PageContent";
 import PostItem from "@/src/components/Posts/PostItem";
 import { auth, firestore } from "@/src/firebase/clientApp";
+import { useEffect } from "react";
 
-import usePosts from "@/src/hooks/usePosts";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { useRouter } from "next/router";
-import { doc, getDoc } from "firebase/firestore";
 import { Post } from "@/src/atoms/postsAtom";
 import About from "@/src/components/Community/About";
-import useCommunityData from "@/src/hooks/useCommunityData";
 import Comments from "@/src/components/Posts/Comments/Comments";
+import useCommunityData from "@/src/hooks/useCommunityData";
+import usePosts from "@/src/hooks/usePosts";
 import { User } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
+import { useRouter } from "next/router";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const PostPage = () => {
   const [user] = useAuthState(auth);
